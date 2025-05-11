@@ -22,8 +22,6 @@ test.describe('Tela de Login', () => {
     await page.getByLabel('Email').fill('email@invalido.com');
 		await page.locator('input[type="password"]').fill('123');
     await page.getByRole('button', { name: 'Entrar' }).click();
-
-    // Espera pelo toast de erro
     await expect(page.getByText('Email ou Senha Inválidos')).toBeVisible();
   });
 
@@ -52,6 +50,19 @@ test.describe('Tela de Login', () => {
 
 		await page.waitForURL('**/testandouser');
 		await expect(page.getByText('Olá , bem vindo !')).toBeVisible();
+		await expect(page.getByText('Você está na página de Testes e você é um Usuário')).toBeVisible();
+
+  });
+
+	test('Deve entrar na tela de testes ADMINISTRADOR', async ({ page }) => {
+    await page.goto(baseUrl);
+		await page.getByLabel('Email').fill('teste1@teste.com');
+		await page.locator('input[type="password"]').fill('123');
+    await page.getByRole('button', { name: 'Entrar' }).click();
+
+		await page.waitForURL('**/admin');
+		await expect(page.getByText('Olá , bem vindo !')).toBeVisible();
+		await expect(page.getByText('Você é um Administrador, bem vindo !')).toBeVisible();
 
   });
 
