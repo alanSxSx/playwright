@@ -77,6 +77,5 @@ test.describe('Tela de Login', () => {
 		await page.waitForURL('**/');
 		await expect(page.getByText('Login')).toBeVisible();
 
-
   });
 });
