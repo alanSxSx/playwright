@@ -7,4 +7,4 @@ RUN npm install
 
 COPY . .
 
-CMD ["npx", "playwright", "test", "--project=firefox", "--headed"]
+CMD ["npx", "playwright", "test", "--project=firefox"]
