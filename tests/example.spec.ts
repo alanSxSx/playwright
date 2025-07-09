@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Tela de Login', () => {
-  const baseUrl = 'http://localhost:3001/';
+  const baseUrl = process.env.BASE_URL || 'http://localhost:3001/';
 
   test('Deve carregar a página de login com título', async ({ page }) => {
     await page.goto(baseUrl);
