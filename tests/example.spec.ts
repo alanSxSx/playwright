@@ -80,7 +80,7 @@ test.describe("Tela de Login", () => {
     await page.waitForURL("**/testandouser" , { timeout: 5000 });
     await expect(page.getByText("Olá , bem vindo !")).toBeVisible();
     await Promise.all([
-      page.waitForURL("**/"),
+      page.waitForURL("**/", { timeout: 5000 }),
       page.getByRole("button", { name: "Sair" }).click(),
     ]);
     await expect(page.getByRole("heading", { name: /login/i })).toBeVisible({ timeout: 10000 });
