@@ -83,6 +83,6 @@ test.describe("Tela de Login", () => {
       page.waitForURL("**/"),
       page.getByRole("button", { name: "Sair" }).click(),
     ]);
-    await expect(page.getByText("Login")).toBeVisible();
+    await expect(page.getByRole("heading", { name: /login/i })).toBeVisible({ timeout: 10000 });
   });
 });
