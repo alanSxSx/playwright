@@ -50,7 +50,7 @@ test.describe("Tela de Login", () => {
     await page.locator('input[type="password"]').fill("123");
     await page.getByRole("button", { name: "Entrar" }).click();
 
-    await page.waitForURL("**/testandouser");
+    await page.waitForURL("**/testandouser",{ timeout: 5000 });
     await expect(page.getByText("Olá , bem vindo !")).toBeVisible();
     await expect(
       page.getByText("Você está na página de Testes e você é um Usuário")
@@ -63,7 +63,7 @@ test.describe("Tela de Login", () => {
     await page.locator('input[type="password"]').fill("123");
     await page.getByRole("button", { name: "Entrar" }).click();
 
-    await page.waitForURL("**/admin");
+    await page.waitForURL("**/admin", { timeout: 5000 });
     await expect(page.getByText("Olá , bem vindo !")).toBeVisible();
     await expect(
       page.getByText("Você é um Administrador, bem vindo !")
@@ -77,7 +77,7 @@ test.describe("Tela de Login", () => {
     await page.getByLabel("Email").fill("teste@teste.com");
     await page.locator('input[type="password"]').fill("123");
     await page.getByRole("button", { name: "Entrar" }).click();
-    await page.waitForURL("**/testandouser");
+    await page.waitForURL("**/testandouser" , { timeout: 5000 });
     await expect(page.getByText("Olá , bem vindo !")).toBeVisible();
     await Promise.all([
       page.waitForURL("**/"),
